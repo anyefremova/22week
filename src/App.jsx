@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Hero from './Hero';
+import heroes from './heroes_data';
 
-function App() {
+function Card() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="cards">
+      {heroes.map((hero) => (
+        <Hero
+          key={hero.id}
+          name={hero.name}
+          universe={hero.universe}
+          alterego={hero.alterego}
+          occupation={hero.occupation}
+          friends={hero.friends}
+          superpowers={hero.superpowers}
+          url={hero.url}
+          info={hero.info}
+        />
+      ))}
     </div>
   );
 }
 
-export default App;
+export default Card;
